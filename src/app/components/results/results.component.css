@@ -1,0 +1,23 @@
+.container {
+ 
+  margin-right: 30vh;
+  margin-bottom: 2vh;
+  border-radius: 8px;
+  display: flex;
+  background-color: rgb(131, 131, 131);
+  width: 150vh;
+  height: 30vh;
+}
+.title{
+     margin-left: 30vh;
+    margin-top:20vh;
+    margin-bottom:1vh;
+}
+h3{
+    color:white;
+}
+
+.result-details{
+    padding:5vh;
+    color:rgb(3, 3, 3);
+}

@@ -1,0 +1,60 @@
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+} 
+#navbtns{
+  background-color:#3A4863;
+  color: white;
+  border: none;
+  margin: 1%;
+  width: 10%;
+  height:40px;
+  border-radius: 5%;
+}
+#navlinks{
+  color: white;
+  margin: 1% ; 
+}
+#gradebtn, #savebtn{
+  background-color: #101F3C;
+  border-color: #F35011;
+  color: #F35011;
+  height:40px;
+  width: 150px;
+}
+#studentanswer{
+  margin: 2%;
+  /* margin-top: 4px; */
+  /* height: 20px; */
+  border-style: groove;
+  border-color: #fff;
+  border-width: 0.05px;
+  background-color: #101F3C;
+  width: 52vw;
+  height: auto;
+}
+#gradecontainer{
+  color:white;
+}
+#gradebtn{
+  margin: 2%;
+}
+
+#gradeinput, #feedbackinput{
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #101F3C;
+  border-color: white;
+  border-width: 0.05px;
+  width: 300px;
+}
+#gradeinput{
+  margin-left: 4%;
+}

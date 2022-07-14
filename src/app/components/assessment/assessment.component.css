@@ -1,0 +1,108 @@
+.container {
+  border-radius: 0.5vw;
+  padding: 2%;
+  margin-top: 3%;
+  display: flex;
+  background-color: rgb(255, 253, 245);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.time {
+  width: 20px;
+  height: 20px;
+}
+button {
+  justify-content: center;
+  background-color: #f35011;
+  outline: none;
+  border: none;
+  padding: 0.5vw 1.5vw;
+  margin: 0 1vw;
+  border-radius: 0.2vw;
+  color: #fff;
+}
+.photo {
+  margin: 20px;
+}
+.timeLimit {
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: rgb(0, 0, 5);
+  font-size: 1.2vw;
+}
+.main h5 {
+  margin-bottom: 1vw;
+}
+.main .info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main .info .duration {
+  margin-right: 1vw;
+}
+
+.main .info span {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 1vw;
+}
+
+button.status {
+  color: white;
+  font-size: light;
+  background-color: #f35011;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+}
+
+button.practice:hover {
+  background-color: #3a4863;
+}
+
+.holder {
+  display: inline-block;
+  width: 110px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+/* .practice {
+  width: 5px;
+} */
+
+.flex-container > div {
+  background-color: inherit;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  width: 20vh;
+  height: 100px;
+}

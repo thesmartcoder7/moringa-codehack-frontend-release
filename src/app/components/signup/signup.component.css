@@ -1,0 +1,111 @@
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 5%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+.container {
+  background-color: #101f3c;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: 70%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 5% 10%;
+  border: 0.05vw solid #fff;
+}
+.card .card-body {
+  width: 100%;
+}
+.title {
+  margin-bottom: 7%;
+}
+h2 {
+  display: block;
+  color: #fa510f;
+  font-size: 2vw;
+}
+h2 .underscore {
+  animation: blink 1s infinite;
+}
+.btn {
+  background-color: transparent;
+  color: #fa510f;
+  padding: 2% 10%;
+  outline: none;
+  border: 0.1vw solid #fa510f;
+  font-size: 1vw;
+  font-weight: 400;
+}
+.btn:hover {
+  background-color: #fa510f;
+  color: #fff;
+}
+
+.row.d-flex {
+  width: 100%;
+}
+
+.form-outline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5% 0;
+}
+
+.form-outline label {
+  text-transform: capitalize;
+  font-size: 1.1vw;
+}
+
+.form-outline input {
+  padding: 2% 5%;
+  width: 100%;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 0.1vw solid #fa510f;
+  border-radius: 0;
+  color: #dcdddd;
+  font-size: 1vw;
+}
+p {
+  font-size: 1vw;
+}
+a {
+  color: #fa510f;
+  font-size: 1.1vw;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  display: inline-block;
+  color: #f8703b;
+  animation: shake 0.5s;
+}

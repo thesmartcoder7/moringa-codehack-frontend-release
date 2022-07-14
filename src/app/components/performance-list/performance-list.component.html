@@ -1,0 +1,59 @@
+<div class="container">
+  <div>
+    <button id="navbtns"> Refresh</button>
+    
+
+    <a href="/tmlanding/peformance-list" id="navlinks" style="color: #F35011;">Candidates</a>
+    <div style="float: right;">
+      <label for="questions" style=" color: white;"><b>Select assesment to view: &nbsp;</b></label>
+      <select name="assesments" id="assesments" style="width: 100%;">
+        <option *ngFor="let item of assessmentList" value="{{item.id}}">{{item.question}}</option>
+      </select>
+    </div>
+  </div>
+  
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2" id="buttonscolumn">
+        <button id="colnavbtns" style="margin-top: 3vh;"> All Candidates</button><br><br>
+        <button id="colnavbtns"> In Progress</button><br><br>
+        <button id="colnavbtns"> Under Review</button><br><br>
+        <button id="colnavbtns"> Completed</button>
+      </div>
+      <div class="col-8">
+        <div id="tablecolumn">
+          <div id="performancetable">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Score</th>
+              </tr>
+              <tr>
+                <td>Joy</td>
+                <td>Completed</td>
+                <td>60</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div id="invitedbycolumn">
+        <div id="invitedbytable">
+          <table>
+            <tr>
+              <th>Invited By</th>
+            </tr>
+            <tr>
+              <td> Sambary Sambady </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>

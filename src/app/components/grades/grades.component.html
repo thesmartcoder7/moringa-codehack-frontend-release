@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="container">
+    <button id="navbtns">Refresh</button>
+    <a href="/tmlanding/grades" id="navlinks" style="color: #f35011"
+      >Candidates</a
+    >
+    <div style="float: right">
+      <label for="questions" style="color: white"
+        ><b>Select assesment to Grade and give feedback: &nbsp;</b></label
+      >
+      <select name="assesments" id="assesments">
+        <option *ngFor="let item of assessmentList" value="{{ item.id }}">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <hr />
+  </div>
+  <div class="container" style="color: white">
+    <h2>Students' Table</h2>
+    <p>
+      The students below have taken the assesment. Click on each to grade and
+      give feedback:<button
+        id="navbtns"
+        data-toggle="modal"
+        data-target=".bd-example-modal-lg"
+        style="float: right"
+      >
+        Grade
+      </button>
+    </p>
+    <table class="table table-bordered" style="color: white">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="name">John Johnnnie</td>
+          <td id="status">Submitted</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="modal fade bd-example-modal-lg"
+    id="grade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myLargeModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="publishcontent">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Grade and Feedback
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="container" action="submit">
+            <div class="section">
+              <label for="assesment"><b>Pick Assesment : &nbsp;</b></label>
+              <select name="assesment" id="assesment">
+                <option
+                  *ngFor="let item of assessmentList"
+                  value="{{ item.id }}"
+                >
+                  {{ item.name }}
+                </option></select
+              >&nbsp;
+              <label for="assesment"><b>Pick Student : &nbsp;</b></label>
+              <select name="assesment" id="assesment">
+                <option value="student1">Somebody somebody</option>
+                <option value="student2">Faith Wanje</option>
+                <option value="student3">Anna Annah</option>
+                <option value="student4">Genesis Genrad</option>
+              </select>
+            </div>
+          </form>
+          <br />
+          <div class="container">
+            <div id="gradecontainer">
+              <div
+                class="row"
+                style="background-color: #101f3c; justify-content: center"
+              >
+                <h6
+                  style="
+                    text-decoration: underline;
+                    text-decoration-color: white;
+                  "
+                >
+                  Grade
+                </h6>
+              </div>
+              <div
+                class="row"
+                style="background-color: #101f3c; justify-content: left"
+              >
+                <form action="" id="gradeandfeedback">
+                  &nbsp;
+                  <textarea
+                    id="studentanswer"
+                    placeholder="Student's answer"
+                    name="stdanswer"
+                    required
+                  ></textarea
+                  ><br />
+                  &nbsp;
+                  <label for="gradeentered"><b>Grade : &nbsp;</b></label>
+                  <input
+                    type="text"
+                    id="gradeinput"
+                    class="no-outline"
+                    placeholder="Enter grade"
+                    name="gradeentered"
+                    required
+                  /><br />
+                  &nbsp;
+                  <label for="feedback"><b>Feedback : &nbsp;</b></label>
+                  <textarea
+                    type="text"
+                    id="feedbackinput"
+                    class="no-outline"
+                    placeholder="Enter your feedback"
+                    name="feedback"
+                    required
+                  ></textarea
+                  ><br />
+                  <button action="submit" id="gradebtn">
+                    Submit & Release
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn" id="savebtn">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

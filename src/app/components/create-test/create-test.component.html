@@ -1,0 +1,312 @@
+<div class="container justify-content-center">
+  <button id="navbtns" data-toggle="modal" data-target="#addquestion">
+    <i class="fa fa-plus" style="margin-right: 7px; font-size: small"></i>Add
+  </button>
+  <button id="navbtns" data-toggle="modal" data-target=".bd-example-modal-lg">
+    <i class="fa fa-plus" style="margin-right: 7px; font-size: small"></i>Invite
+  </button>
+  <a
+    class="active"
+    href="/tmlanding/create-test"
+    id="navlinks"
+    style="color: #f35011"
+    >Assessments</a
+  >
+
+  <hr />
+  <div id="quetable">
+    <table>
+      <tr>
+        <th>Assesment</th>
+        <th>Difficulty</th>
+        <th>Passmark</th>
+      </tr>
+      <tr *ngFor="let item of assessmentList">
+        <td>{{ item.name }}</td>
+        <td>{{ item.difficulty }}</td>
+        <td>{{ item.pass_mark }}</td>
+      </tr>
+    </table>
+  </div>
+  <div
+    class="modal fade"
+    id="addquestion"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="addquestioncontent">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Create Assesment
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6
+            style="
+              text-align: center;
+              background-color: #101f3c;
+              color: #f35011;
+            "
+          >
+            Hold down the Ctrl (windows) or Command (Mac) button to select
+            multiple options.
+          </h6>
+          <br />
+          <form class="container" id="createownassesment">
+            <div class="section">
+              <label for="assesment"><b>Create Assesment : &nbsp;</b></label
+              ><br />
+              <input
+                type="text"
+                id="testname"
+                class="no-outline"
+                placeholder="Enter Assesment name"
+                name="testname"
+                required
+                style="float: left; width: 20vw"
+                #assessmentName
+              /><br /><br />
+              <label for="testtopic"><b>Assessment Topic : &nbsp;</b></label
+              ><br />
+              <input
+                type="text"
+                id="testtopic"
+                class="no-outline"
+                placeholder="Enter Assesment topic"
+                name="testtopic"
+                required
+                style="float: left; width: 20vw"
+                #topic
+              /><br /><br />
+              <label for="testdifficulty"><b>Difficulty : &nbsp;</b></label
+              ><br />
+              <select name="difficulty" id="difficulty" #difficulty>
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="hard">hard</option>
+              </select>
+              <br /><br />
+              <label for="testpassmark"><b>Passmark in %: &nbsp;</b></label
+              ><br />
+              <input
+                type="number"
+                min="0"
+                max="100"
+                id="testpassmark"
+                class="no-outline"
+                placeholder="Enter Pass mark"
+                name="testpassmark"
+                required
+                style="float: left; width: 20vw"
+                #passmark
+              /><br /><br />
+
+              <label for="timelimit"><b>Time Limit : &nbsp;</b></label
+              ><br />
+              <input
+                type="number"
+                min="0"
+                id="timelimit"
+                class="no-outline"
+                placeholder="Add time limit"
+                name="timelimit"
+                required
+                style="float: left; width: 20vw"
+                #timelimit
+              /><br /><br />
+              <label for="category">Assessment Category:</label>
+              <br />
+              <select
+                name="category"
+                id="category"
+                #assessmentCategory
+                (change)="changeCategory($event)"
+              >
+                <option value="kata">Kata</option>
+                <option value="multiple_choice">Multiple Choice</option>
+                <option value="subjective">Subjective</option>
+              </select>
+              <br />
+              <br />
+              <select
+                name="subjectivequestions"
+                id="subjectivequestions"
+                multiple
+                style="float: left; width: 100%; display: none"
+                #subjectiveQuestions
+              >
+                <option
+                  *ngFor="let item of subjectiveList"
+                  value="{{ item.id }}"
+                >
+                  {{ item.question }}
+                </option>
+              </select>
+              <select
+                name="katasquestions"
+                id="katasquestions"
+                multiple
+                style="float: left; width: 100%; display: none"
+                #kataQuestions
+              >
+                <option *ngFor="let item of katasList" value="{{ item.id }}">
+                  {{ item.question }}
+                </option>
+              </select>
+              <select
+                name="multiplechoicequestions"
+                id="multiplechoicequestions"
+                multiple
+                style="float: left; width: 100%; display: none"
+                #mcQuestions
+              >
+                <option
+                  *ngFor="let item of multipleChoiceList"
+                  value="{{ item.id }}"
+                >
+                  {{ item.question }}
+                </option>
+              </select>
+            </div>
+            <br />
+            <button
+              type="submit"
+              class="btn"
+              id="savebtn"
+              (click)="
+                createAssessment(
+                  assessmentName.value,
+                  topic.value,
+                  difficulty.value,
+                  passmark.value,
+                  assessmentCategory.value,
+                  subjectiveQuestions,
+                  kataQuestions,
+                  mcQuestions,
+                  timelimit.value
+                )
+              "
+            >
+              Create
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="buttton" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <!-- <button type="button" class="btn" id="savebtn">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade bd-example-modal-lg"
+    id="publish"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myLargeModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="publishcontent">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Invite and Publish
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="container" action="submit">
+            <div class="section">
+              <label for="assesment"><b>Pick Assesment : &nbsp;</b></label
+              ><br />
+              <select name="assesment" id="assesment" style="width: 50%" #selectAssessment>
+                <option
+                  *ngFor="let item of assessmentList"
+                  value="{{ item.id }}"
+                >
+                  {{ item.name }}
+                </option></select
+              ><br /><br />
+            </div>
+          </form>
+
+          <div class="container">
+            <div id="sendinvite">
+              <div
+                class="row"
+                style="background-color: #101f3c; justify-content: center"
+              >
+                <h6
+                  style="
+                    text-decoration: underline;
+                    text-decoration-color: white;
+                  "
+                >
+                  Send Invite
+                </h6>
+              </div>
+              <div
+                class="row"
+                style="background-color: #101f3c; justify-content: left"
+              >
+                <form action="" id="publishform">
+                  &nbsp;<label for="recepient"><b>To : &nbsp;</b></label>
+                  <input
+                    type="text"
+                    id="recepientinput"
+                    class="no-outline"
+                    placeholder="Enter emails separated by spaces"
+                    name="recepient"
+                    required
+                    #emails
+                  /><br />
+                  &nbsp;<label for="Subject"><b>Subject : &nbsp;</b></label>
+                  <br />
+                  <textarea
+                    id="messageinput"
+                    placeholder="Enter your message"
+                    name="message"
+                    required
+                    #message
+                  ></textarea
+                  ><br />
+                  <button id="sendbtn" (click)="sendInvite(
+                    selectAssessment.value,
+                    emails.value,
+                    message.value
+                  )">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

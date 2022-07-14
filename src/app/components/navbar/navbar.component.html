@@ -1,0 +1,23 @@
+<div class="topnav">
+  <!-- Centered link -->
+  <!-- Left-aligned links (default) -->
+  <div class="logo-div">
+    <a href="" class="logo">
+      <img alt="Angular Logo" src="assets/moringa-logo 1.png"
+    /></a>
+  </div>
+
+  <!-- <a href="#contact">Contact</a> -->
+
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <!--<a href="#search">Search</a> -->
+    <div class="authentication">
+      <!-- <p>{{message}}</p> -->
+      <button routerLink="/login" *ngIf="!user">Login</button>
+      <button routerLink="/signup" *ngIf="!user">Sign Up</button>
+      <button routerLink="/landing" (click)="logOut()" *ngIf="user">Log Out</button>
+    </div>
+    <!-- <a href="#profile">Profile</a> -->
+  </div>
+</div>

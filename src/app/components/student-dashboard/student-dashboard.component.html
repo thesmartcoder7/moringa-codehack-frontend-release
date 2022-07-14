@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="navigation">
+  <!-- <button routerLink="/results"> YOUR RESULTS</button> -->
+  <a href="/results"
+    ><button id="real" class="practice">Your Results</button></a
+  >
+  <a href="/practise-test"
+    ><button id="real" class="practice">Practice</button></a
+  >
+  <button>{{ userData.assessments.length }} Assessment(s)</button>
+
+  <button>Completed</button>
+</div>
+<div class="container" *ngFor="let assessment of userData.assessments">
+  <div class="main">
+    <div class="image">
+      <div class="photo">
+        <img src="/assets/test.jpg" alt="" />
+      </div>
+    </div>
+    <h5>
+      {{ assessment.name }} ( {{ assessment.category }} )
+      <br />
+      <div class="info">
+        <div class="duration">
+          <div class="left">
+            <span
+              ><img src="/assets/time.png" class="time" />&nbsp;&nbsp;Time
+              Limit: {{ assessment.time_limit }} Minutes</span
+            >
+          </div>
+        </div>
+      </div>
+    </h5>
+  </div>
+
+  <div class="action">
+    <a
+      ><button
+        id="real"
+        class="real"
+        (click)="getCurrentAssessment(assessment.category, assessment.id)"
+      >
+        Start Assessment
+      </button></a
+    >
+  </div>
+</div>

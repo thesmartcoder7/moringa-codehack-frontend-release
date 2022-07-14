@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+
+<div class="choices">
+  <button id="mcque">Multiple Choice Practice</button>
+  <button id="kataque">Kata Practice</button>
+  <button routerLink="/student-dashboard">Assessments</button>
+</div>
+
+<div class="container1">
+  <h2>Practice Test</h2>
+  <h3></h3>
+  <div class="question-remaining"></div>
+  <form class="radio-questions">
+    <div class="card">
+      <div class="card-content">
+        <h5>{{ simpleMCQ.question }}</h5>
+      </div>
+      <div class="content">
+        <label class="containerone" *ngFor="let answer of simpleMCQanswers"
+          >{{ answer.answer }}
+          <p *ngIf="mcqSubmitted && answer.correct">&nbsp;( Correct Answer )</p>
+          <input type="radio" name="radio" id="answer" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="bottom">
+        <button class="assessment" (click)="changeSubmit()">
+          Check Answer
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="code-editor">
+  <h2>Practice Test</h2>
+  <div class="timer">
+    <h3></h3>
+  </div>
+  <div class="card-content">
+    <h5>
+      {{ simpleKata.question }}
+    </h5>
+  </div>
+  <br />
+  <div class="solution">
+    <form>
+      <script src="./ace.js"></script>
+      <script src="./codehack.js"></script>
+      <div class="form-group" style="margin-right: 2vw">
+        <label for="codearea">Code Area :</label>
+        <div class="app-ace-editor" #codearea></div>
+      </div>
+
+      <div class="form-group" style="margin-right: 2vw">
+        <label for="output">Output :</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="output"
+          name="output"
+          rows="3"
+          spellcheck="false"
+          disabled
+          >{{ output }} </textarea
+        >
+      </div>
+
+      <div class="buttons">
+        <button (click)="runCode()">Run</button>
+        <button (click)="testCode(simpleKata.id)">Test</button>
+      </div>
+    </form>
+
+    <div class="tests" *ngIf="confirmationTests">
+      <label for="">Test Results : </label>
+      <div class="testarea" spellcheck="false">
+        <p *ngFor="let test of confirmationTests">
+          <span *ngIf="test == 'True'">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
+              width="1em"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 15 15"
+            >
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm7.072 3.21l4.318-5.398l-.78-.624l-3.682 4.601L4.32 7.116l-.64.768l3.392 2.827Z"
+                clip-rule="evenodd"
+              /></svg
+            >Test Passed!</span
+          >
+          <span *ngIf="test != 'True'"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
+              width="1em"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill="currentColor"
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293L5.354 4.646z"
+              />
+            </svg>
+            Test Failed!</span
+          >
+          <br />
+        </p>
+        <pre></pre>
+        <h6 *ngIf="allPassed == true">You have passed all of the tests! 😌</h6>
+        <h6 *ngIf="allPassed == false">You have not passed every test! 😔</h6>
+      </div>
+      <pre></pre>
+      <button class="kata btn btn-primary" type="submit">Submit</button>
+    </div>
+    <div class="tests" *ngIf="!confirmationTests">
+      <label for="">Test Results : </label>
+      <div class="testarea" spellcheck="false">
+        <p>No Tests Ran Yet!</p>
+        <pre></pre>
+        <p>Please click on the test button two get your code test results</p>
+      </div>
+      <pre></pre>
+      <button [disabled]="!confirmationTests" type="submit">Submit</button>
+    </div>
+  </div>
+</div>

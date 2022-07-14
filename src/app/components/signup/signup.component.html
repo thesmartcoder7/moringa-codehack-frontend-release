@@ -1,0 +1,42 @@
+<div class="container align-items-center">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="card text-white">
+      <div class="card-body text-center">
+        <form class="mb-md-5 mt-md-4" (submit)="submit(name.value, email.value, password.value)">
+          <div class="title">
+            <h2 class="fw-bold mb-2" id="title">
+              <span>&lt;</span> Codehack Sign Up
+              <span class="underscore"> &#95;</span> &nbsp;<span>&#47;</span><span>&gt;</span>
+            </h2>
+          </div>
+          <div>
+            <div class="form-outline form-white mb-4">
+              <label class="form-label" for="typeName">Name</label>
+              <input type="text" id="typeName" #name />
+            </div>
+
+            <div class="form-outline form-white mb-4">
+              <label class="form-label" for="typeEmailX">Email</label>
+              <input type="email" id="typeEmailX" #email />
+            </div>
+
+            <div class="form-outline form-white mb-4">
+              <label class="form-label" for="typePasswordX">Password</label>
+              <input type="password" id="typePasswordX" #password />
+            </div>
+            </div>
+            <button class="btn btn-outline-light btn-lg px-5" type="submit">
+              Sign Up
+            </button>
+          </form>
+
+        <div>
+          <p class="mb-0" id="title">
+            Already have an account?
+            <a href="#!" routerLink="/login" class="text-50 fw-bold">Log In</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+.topnav {
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: ; */
+}
+
+.topnav .logo-div {
+  width: 50%;
+}
+
+.topnav .logo img {
+  width: 10vw;
+}
+
+.topnav-right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topnav-right .authentication {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+button {
+  background-color: #3a4863;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 0.5vw 1vw;
+  margin: 0 0.5vw;
+  border-radius: 0.2vw;
+  font-size: 1vw;
+  font-weight: 500;
+  border: 0.1vw solid #4c5e83;
+}
+
+button:hover {
+  background-color: #4c5e83;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a,
+  .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}

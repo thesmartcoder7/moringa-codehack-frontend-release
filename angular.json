@@ -94,6 +94,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/moringa-codehack-frontend-release",
+            "netlifyToken": "PPc25mdp_hhp984uOoIrZSMnHV6VvaEj2XDJ1jaKVj4",
+            "siteId": ""
+          }
         }
       }
     }
